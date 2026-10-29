@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reminho: saytlar yasayman</title>
+<style>
+:root{--bg:#0b1020;--bg2:#141a3a;--t:#eef0ff;--m:#b9bff0;--line:rgba(255,255,255,.12);--card:rgba(255,255,255,.06);color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--t);font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(11,16,32,.9);z-index:60}
+a{color:inherit}
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(18px,5vw,64px);background:rgba(11,16,32,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.nav nav{display:flex;align-items:center;gap:26px}
+.nav nav a{text-decoration:none;color:var(--m);font-size:15px;transition:color .2s}
+.nav nav a:hover{color:#fff}
+.nav .cta{color:#fff;padding:9px 20px;border-radius:99px;background:linear-gradient(135deg,#6366f1,#06b6d4);font-weight:600}
+.hero{position:relative;min-height:100svh;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;padding:110px clamp(18px,6vw,80px) 60px;overflow:hidden;background:linear-gradient(135deg,#0b1020,#1b1146 55%,#0f2a4d)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.16;background-image:linear-gradient(#8b9cff 1px,transparent 1px),linear-gradient(90deg,#8b9cff 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 50%,#000,transparent 75%)}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 12s ease-in-out infinite}
+.b1{width:360px;height:360px;background:#7c3aed;top:-90px;left:-70px}
+.b2{width:340px;height:340px;background:#06b6d4;bottom:-100px;right:-50px;animation-delay:-5s}
+.b3{width:240px;height:240px;background:#ec4899;top:45%;left:45%;animation-delay:-8s;opacity:.28}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+.intro{position:relative;z-index:2;max-width:520px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+h1{margin:0 0 18px;font-size:clamp(36px,5.4vw,62px);line-height:1.08;font-weight:800;letter-spacing:-.03em;background:linear-gradient(90deg,#fff,#b6c0ff 55%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{margin:0 0 28px;font-size:18px;color:var(--m);max-width:46ch}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:99px;color:#fff;text-decoration:none;font-size:16px;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.4);transition:transform .25s,box-shadow .25s;animation:wiggle 3.4s ease-in-out infinite}
+.btn svg{width:22px;height:22px;fill:#fff;flex:none}
+.tg{background:linear-gradient(135deg,#2AABEE,#1c7fd6)}
+.mail{background:linear-gradient(135deg,#ff5f6d,#ffa14a);animation-delay:.6s}
+.tel{background:linear-gradient(135deg,#11998e,#38ef7d);animation-delay:1.2s}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite}
+.btn:hover,.btn:focus-visible{transform:translateY(-5px) scale(1.07);box-shadow:0 16px 34px rgba(0,0,0,.5);animation-play-state:paused;outline:none}
+@keyframes wiggle{0%,78%,100%{transform:rotate(0) scale(1)}81%{transform:rotate(-4deg) scale(1.06)}84%{transform:rotate(4deg) scale(1.06)}87%{transform:rotate(-3deg) scale(1.06)}90%{transform:rotate(3deg) scale(1.06)}93%{transform:rotate(0) scale(1.04)}}
+@keyframes shine{0%,55%{left:-80%}80%,100%{left:140%}}
+.scene{position:relative;z-index:2;width:420px;height:400px;perspective:1200px;display:flex;justify-content:center;align-items:center;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(-8px)}50%{transform:translateY(10px)}}
+.laptop{position:relative;width:340px;height:200px;transform-style:preserve-3d;animation:sway 9s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotateX(14deg) rotateY(-30deg)}50%{transform:rotateX(14deg) rotateY(-6deg)}}
+.screen{position:absolute;left:20px;top:0;width:300px;height:190px;transform-origin:50% 100%;transform:rotateX(8deg);background:#0d1224;border:8px solid #252a46;border-radius:12px;box-shadow:0 0 60px rgba(99,102,241,.65);overflow:hidden}
+.dots{display:flex;gap:6px;padding:8px 10px;background:#161b34}
+.dots i{width:9px;height:9px;border-radius:50%;background:#ef4444}.dots i:nth-child(2){background:#facc15}.dots i:nth-child(3){background:#22c55e}
+pre{margin:0;padding:10px 12px;font:13px/1.55 Consolas,Menlo,monospace;color:#e2e8f0;white-space:pre-wrap}
+.k{color:#c084fc}.v{color:#67e8f9}.s{color:#86efac}.c{color:#64748b}
+.cur{display:inline-block;width:8px;height:15px;background:#67e8f9;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.base{position:absolute;left:0;top:190px;width:340px;height:140px;transform-origin:50% 0;transform:rotateX(80deg);border-radius:6px 6px 22px 22px;background:linear-gradient(#d8dbee,#9ba1c0);box-shadow:0 0 0 2px #7f86a8 inset}
+.base::before{content:"";position:absolute;inset:12px 20px 52px;border-radius:4px;background:#2b2f4d;background-image:repeating-linear-gradient(90deg,#4a5078 0 18px,#2b2f4d 18px 21px),repeating-linear-gradient(0deg,transparent 0 14px,#2b2f4d 14px 17px)}
+.base::after{content:"";position:absolute;left:50%;bottom:10px;width:90px;height:34px;margin-left:-45px;border-radius:6px;background:#b4b9d6;box-shadow:0 0 0 1px #7f86a8 inset}
+.shadow{position:absolute;bottom:24px;width:300px;height:36px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(16px)}
+section{padding:96px clamp(18px,6vw,80px)}
+.head{max-width:1160px;margin:0 auto 44px}
+h2{margin:0 0 10px;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.025em}
+.head p{margin:0;color:var(--m);font-size:18px;max-width:52ch}
+.grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.card{display:flex;flex-direction:column;padding:16px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.3);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.mock{border-radius:14px;overflow:hidden;background:#0d1224;border:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#161b34}
+.bar i{width:8px;height:8px;border-radius:50%;background:#475569}
+.bar span{margin-left:10px;font-size:12px;color:#94a3b8;background:rgba(255,255,255,.06);padding:2px 12px;border-radius:99px}
+.scr{padding:12px}
+.mh{height:104px;border-radius:10px;padding:14px;background:linear-gradient(135deg,var(--a),var(--b));display:flex;flex-direction:column;gap:7px;justify-content:center}
+.mh b{display:block;height:12px;width:62%;border-radius:6px;background:#fff}
+.mh em{display:block;height:7px;width:42%;border-radius:6px;background:rgba(255,255,255,.7)}
+.mh u{display:block;height:18px;width:74px;border-radius:99px;background:#fff;margin-top:4px}
+.mr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.mr s{height:46px;border-radius:8px;background:rgba(255,255,255,.07);border-top:3px solid var(--a)}
+.card h3{margin:18px 4px 6px;font-size:20px}
+.card p{margin:0 4px 14px;color:var(--m);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:auto 4px 4px}
+.tags span{font-size:13px;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.08);color:#d8dcff}
+.contact{background:linear-gradient(180deg,var(--bg),var(--bg2));text-align:center}
+.contact .head{text-align:center}.contact .head p{margin:0 auto}
+.contact .btns{justify-content:center}
+footer{padding:26px 20px;text-align:center;color:#7d84b8;font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:700px){.nav nav a:not(.cta){display:none}.hero{padding-top:100px}.scene{transform:scale(.78);height:320px;width:330px;margin:-20px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#bosh">Reminho</a>
+  <nav><a href="#ishlar">Ishlarim</a><a href="#aloqa">Aloqa</a><a class="cta" href="#aloqa">Buyurtma berish</a></nav>
+</header>
+
+<main>
+<section class="hero" id="bosh">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="intro">
+    <h1>Biznesingiz uchun zamonaviy sayt</h1>
+    <p>Salom, men Shukurulloh. Kichik bizneslar uchun tez, chiroyli va telefonda qulay ishlaydigan saytlar yasayman. Mijozlaringiz sizni internetda topsin va bir bosishda bog‘lansin.</p>
+    <div class="btns">
+      <a class="btn tg" href="https://t.me/reminho_11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>Telegram</a>
+      <a class="btn mail" href="mailto:SIZNING.EMAIL@gmail.com?subject=Sayt%20buyurtmasi"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Gmail</a>
+      <a class="btn tel" href="tel:+998333931958"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>Qo‘ng‘iroq</a>
+    </div>
+  </div>
+  <div class="scene" aria-hidden="true">
+    <div class="shadow"></div>
+    <div class="float"><div class="laptop">
+      <div class="screen"><div class="dots"><i></i><i></i><i></i></div><pre id="code"></pre></div>
+      <div class="base"></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="ishlar">
+  <div class="head">
+    <h2>Mening ishlarim</h2>
+    <p>Uchta namuna loyiha: har biri telefonda ham, kompyuterda ham qulay ishlaydi.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="mock" style="--a:#f59e0b;--b:#9a3412"><div class="bar"><i></i><i></i><i></i><span>brewbite.uz</span></div>
+        <div class="scr"><div class="mh"><b></b><em></em><u></u></div><div class="mr"><s></s><s></s><s></s></div></div></div>
+      <h3>Brew &amp; Bite: kafe sayti</h3>
+      <p>Menyu, rasmlar galereyasi va stol band qilish tugmasi.</p>
+      <div class="tags"><span>Menyu</span><span>Galereya</span><span>Xarita</span></div>
+    </article>
+    <article class="card">
+      <div class="mock" style="--a:#6366f1;--b:#0ea5e9"><div class="bar"><i></i><i></i><i></i><span>edupro.uz</span></div>
+        <div class="scr"><div class="mh"><b></b><em></em><u></u></div><div class="mr"><s></s><s></s><s></s></div></div></div>
+      <h3>EduPro: o‘quv markazi</h3>
+      <p>Kurslar, narxlar va ro‘yxatdan o‘tish formasi.</p>
+      <div class="tags"><span>Kurslar</span><span>Narxlar</span><span>Ro‘yxatdan o‘tish</span></div>
+    </article>
+    <article class="card">
+      <div class="mock" style="--a:#ec4899;--b:#7c3aed"><div class="bar"><i></i><i></i><i></i><span>lumina.uz</span></div>
+        <div class="scr"><div class="mh"><b></b><em></em><u></u></div><div class="mr"><s></s><s></s><s></s></div></div></div>
+      <h3>Lumina: go‘zallik saloni</h3>
+      <p>Xizmatlar ro‘yxati, ishlar galereyasi va onlayn yozilish.</p>
+      <div class="tags"><span>Xizmatlar</span><span>Galereya</span><span>Yozilish</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="contact" id="aloqa">
+  <div class="head">
+    <h2>Saytingizni birga boshlaymiz</h2>
+    <p>Qaysi usul qulay bo‘lsa, shu orqali yozing. Narx va muddatni birinchi suhbatda aytaman.</p>
+  </div>
+  <div class="btns">
+    <a class="btn tg" href="https://t.me/reminho_11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>Telegram: @reminho_11</a>
+    <a class="btn mail" href="mailto:SIZNING.EMAIL@gmail.com?subject=Sayt%20buyurtmasi"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Gmail orqali yozish</a>
+    <a class="btn tel" href="tel:+998333931958"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>+998 33 393 19 58</a>
+  </div>
+</section>
+</main>
+<footer>© 2026 Reminho. Barcha huquqlar himoyalangan.</footer>
+
+<script>
+var code=[[['c','// Sizning saytingiz']],[['k','const '],['v','biznes'],['p',' = {']],[['p','  nom: '],['s','"Sizning brend"'],['p',',']],[['p','  dizayn: '],['s','"zamonaviy"'],['p',',']],[['p','  mobil: '],['k','true'],['p',',']],[['p','};']],[['v','buyurtma'],['p','('],['s','"Telegram"'],['p',');']]];
+var total=0;code.forEach(function(l){l.forEach(function(s){total+=s[1].length});total++});
+var el=document.getElementById('code'),n=0;
+function render(n){var out='',i=0;
+ for(var a=0;a<code.length;a++){if(i>=n)break;
+  for(var b=0;b<code[a].length;b++){var c=code[a][b][0],t=code[a][b][1],k=Math.min(t.length,n-i);
+   if(k>0)out+='<span class="'+c+'">'+t.slice(0,k).replace(/</g,'&lt;')+'</span>';
+   i+=t.length;if(i>=n)break}
+  i+=1;if(i<n)out+='\n'}
+ el.innerHTML=out+'<span class="cur"></span>'}
+function tick(){render(n);if(n>=total){n=0;setTimeout(tick,2500);return}n++;setTimeout(tick,70)}
+tick();
+</script>
+</body>
+</html>
